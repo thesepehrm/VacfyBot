@@ -1,6 +1,7 @@
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var http = require('http');
 
-server.listen(server_port, server_ip_address, function () {
-    console.log("Listening on " + server_ip_address + ", port " + server_port)
-});
+//create a server object:
+http.createServer(function (req, res) {
+    res.write('Hello World!'); //write a response to the client
+    res.end(); //end the response
+}).listen(8080); //the server object listens on port 8080
